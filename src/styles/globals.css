@@ -1,8 +1,16 @@
+@font-face {
+  font-family: 'sf_pro_displayregular';
+  src: url('../assets/font/sfprodisplayregular-webfont.woff') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+
+}
+
 html,
 body {
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+  font-family: 'sf_pro_displayregular', -apple-system, BlinkMacSystemFont, Roboto, Segoe UI,Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
 
