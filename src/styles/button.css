@@ -1,0 +1,10 @@
+.mui-button{
+    color: white;
+    background-color: rgba(164,176,190, .50);
+    border-radius: 20px;
+    width: 100%;
+}
+
+.mui-button:hover{
+    background-color: rgba(193, 206, 222, 0.50);
+}
