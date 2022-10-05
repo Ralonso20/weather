@@ -6,13 +6,14 @@ import { ChangeEvent } from "react";
 import { WeekForecast } from "../components/week-forecast";
 import styles from "../styles/Home.module.css";
 import mainStyles from "../styles/mainCard.module.css";
+import { useState, MouseEvent } from 'react'
 
 const Home: NextPage = () => {
   const [isShown, setIsShown] = useState(false);
 
-  // const handleClick = (event: MouseEvent) => {
-  //   setIsShown((current: boolean) => !current);
-  // };
+  const handleClick = (event: MouseEvent<HTMLButtonElement, Event>) => {
+    setIsShown((current: boolean) => !current);
+  };
   return (
     <div>
       <Head>
@@ -53,12 +54,17 @@ const Home: NextPage = () => {
               </tr>
             </table>
           </div>
-          <Button variant="contained" size="large" className="mui-button">
+          <Button onClick={(e) => handleClick(e)} variant="contained" size="large" className="mui-button">
             week forecast
           </Button>
           {
             isShown && (
-              <WeekForecast></WeekForecast>
+              <WeekForecast
+                isShown = {isShown}
+                setIsShown = {setIsShown}
+              >
+
+              </WeekForecast>
             )
           }
         </div>
@@ -68,7 +74,5 @@ const Home: NextPage = () => {
 };
 
 export default Home;
-function useState(arg0: boolean): [any, any] {
-  throw new Error("Function not implemented.");
-}
+
 
