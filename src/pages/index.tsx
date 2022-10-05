@@ -2,10 +2,17 @@ import Button from "@mui/material/Button";
 import type { NextPage } from "next";
 import Head from "next/head";
 import Image from "next/image";
+import { ChangeEvent } from "react";
+import { WeekForecast } from "../components/week-forecast";
 import styles from "../styles/Home.module.css";
 import mainStyles from "../styles/mainCard.module.css";
 
 const Home: NextPage = () => {
+  const [isShown, setIsShown] = useState(false);
+
+  // const handleClick = (event: MouseEvent) => {
+  //   setIsShown((current: boolean) => !current);
+  // };
   return (
     <div>
       <Head>
@@ -49,6 +56,11 @@ const Home: NextPage = () => {
           <Button variant="contained" size="large" className="mui-button">
             week forecast
           </Button>
+          {
+            isShown && (
+              <WeekForecast></WeekForecast>
+            )
+          }
         </div>
       </main>
     </div>
@@ -56,3 +68,7 @@ const Home: NextPage = () => {
 };
 
 export default Home;
+function useState(arg0: boolean): [any, any] {
+  throw new Error("Function not implemented.");
+}
+
