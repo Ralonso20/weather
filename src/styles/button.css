@@ -9,18 +9,18 @@
   background-color: rgba(193, 206, 222, 0.5);
 }
 
-.closeButton{
-    display: flex;
-    color: #2f3542;
-    font-size: large;
-    width: 4rem;
-    height: 4rem;
-    border-radius: 80%;
-    background-color: rgba(193, 206, 222, 0.7);
+.closeButton {
+  display: flex;
+  color: #2f3542;
+  font-size: large;
+  width: 4rem;
+  height: 4rem;
+  border-radius: 80%;
+  background-color: rgba(193, 206, 222, 0.7);
 }
 
-.closeButton:hover{
-    background-color: rgba(164, 176, 190, 0.5);
+.closeButton:hover {
+  background-color: rgba(164, 176, 190, 0.5);
 }
 
 @media (max-width: 768px) {

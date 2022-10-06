@@ -41,7 +41,12 @@
 }
 
 .card .weatherStateContainer {
-  font-size: 1.5rem;
+  margin: 1.5rem auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 1rem;
 }
 
 .card .temperatureIndicator {

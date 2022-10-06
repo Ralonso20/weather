@@ -1,4 +1,4 @@
-export interface Itinerarios {
+export interface Weather {
     location:            Location;
     current_observation: CurrentObservation;
     forecasts:           Forecast[];
