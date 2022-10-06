@@ -1,17 +1,24 @@
 @font-face {
-  font-family: 'sf_pro_displayregular';
-  src: url('../assets/font/sfprodisplayregular-webfont.woff') format('woff2');
+  font-family: "sf_pro_displayregular";
+  src: url("../assets/font/sfprodisplayregular-webfont.woff") format("woff2");
   font-weight: normal;
   font-style: normal;
-
 }
 
 html,
 body {
   padding: 0;
   margin: 0;
-  font-family: 'sf_pro_displayregular', -apple-system, BlinkMacSystemFont, Roboto, Segoe UI,Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-family: "sf_pro_displayregular", -apple-system, BlinkMacSystemFont,
+    Roboto, Segoe UI, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans,
+    Helvetica Neue, sans-serif;
+  background: rgb(1, 0, 27);
+  background: radial-gradient(
+    circle,
+    rgba(1, 0, 27, 1) 0%,
+    rgba(9, 9, 121, 1) 29%,
+    rgba(0, 212, 255, 1) 100%
+  );
 }
 
 a {

@@ -1,6 +1,5 @@
 import Button from "@mui/material/Button";
 import mainStyles from "../styles/mainCard.module.css";
-import styles from "../styles/Home.module.css";
 import { MouseEvent } from "react";
 export const WeekForecast = (props: any) => {
   const { isShown, setIsShown } = props;
@@ -9,11 +8,9 @@ export const WeekForecast = (props: any) => {
   };
   return (
     <>
-      <main className={styles.main}>
-        <div className={mainStyles.card}>
-          <Button onClick={(e) => handleClick(e)}>volver</Button>
+        <div className={`${mainStyles.card} ${mainStyles.secondCard} ${mainStyles.swingBottom}`}>
+          <Button className="closeButton"onClick={(e) => handleClick(e)}>X</Button>
         </div>
-      </main>
     </>
   );
 };
