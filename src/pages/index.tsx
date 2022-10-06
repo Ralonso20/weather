@@ -6,17 +6,17 @@ import styles from "../styles/Home.module.css";
 import mainStyles from "../styles/mainCard.module.css";
 import { useState, MouseEvent, useEffect } from 'react'
 import { getData } from "../service/base-service";
+import { SearchInput } from "../components/common/search";
 
 const Home: NextPage = () => {
   const [isShown, setIsShown] = useState(false);
-
+  const [data, setData] = useState<Promise<void>>()
   const handleClick = (event: MouseEvent<HTMLButtonElement, Event>) => {
     setIsShown((current: boolean) => !current);
   };
   
-
   useEffect(() => {
-    getData()
+    
   })
   return (
     <div>
@@ -32,7 +32,9 @@ const Home: NextPage = () => {
           <h1>clyma</h1>
           <h3>Updated just now</h3>
 
-          <h1>Paris France</h1>
+          <SearchInput>
+            
+          </SearchInput>
           <div className={mainStyles.weatherStateContainer}>
             <h1 className={mainStyles.temperatureIndicator}>11°</h1>
             <p>Thunderstorm</p>

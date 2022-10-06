@@ -1,0 +1,30 @@
+.container{
+	position: relative;
+}
+.input {
+  color: black;
+  width: 50em;
+  border-style: none;
+  border-radius: 6px;
+  height: 3em;
+  padding: 15px 15px 15px 35px;
+  background-color: white;
+}
+
+.input:focus-visible{
+  outline: none;
+}
+
+
+.searchIcon {
+  color: rgb(47, 53, 66);
+  background-color: white;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+@media (max-width: 768px) {
+  .input {
+    width: 25em;
+  }
+}
