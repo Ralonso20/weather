@@ -4,21 +4,20 @@ import Head from "next/head";
 import { WeekForecast } from "../components/week-forecast";
 import styles from "../styles/Home.module.css";
 import mainStyles from "../styles/mainCard.module.css";
-import { useState, MouseEvent } from 'react'
+import { useState, MouseEvent, useEffect } from 'react'
+import { getData } from "../service/base-service";
 
 const Home: NextPage = () => {
   const [isShown, setIsShown] = useState(false);
 
   const handleClick = (event: MouseEvent<HTMLButtonElement, Event>) => {
     setIsShown((current: boolean) => !current);
-    if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)){
-      // true for mobile device
-      console.log("mobile device");
-    }else{
-      // false for not mobile device
-      console.log("not mobile device");
-    }
   };
+  
+
+  useEffect(() => {
+    getData()
+  })
   return (
     <div>
       <Head>
