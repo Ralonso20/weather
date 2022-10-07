@@ -5,10 +5,8 @@ import { WeekForecast } from "../components/week-forecast";
 import styles from "../styles/Home.module.css";
 import mainStyles from "../styles/mainCard.module.css";
 import { useState, MouseEvent, useEffect } from "react";
-import { getData } from "../service/http-common";
 import { SearchInput } from "../components/common/search";
 import { Typography } from "@mui/material";
-import { AxiosResponse } from "axios";
 import { weatherService } from "../service/weather-service";
 
 const Home: NextPage = () => {

@@ -19,11 +19,3 @@ export default axios.create({
   }
 });
 
-export const getData = () => {
-    return axios.request(options).then(function (response) {
-      console.log(response.data);
-    }).catch(function (error) {
-      console.error(error);
-    });
-}
-

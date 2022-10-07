@@ -7,15 +7,9 @@ export interface Weather {
 export interface CurrentObservation {
     wind:       Wind;
     atmosphere: Atmosphere;
-    astronomy:  Astronomy;
     condition:  Condition;
-    pubDate:    number;
 }
 
-export interface Astronomy {
-    sunrise: string;
-    sunset:  string;
-}
 
 export interface Atmosphere {
     humidity:   number;
@@ -48,9 +42,5 @@ export interface Forecast {
 export interface Location {
     city:        string;
     region:      string;
-    woeid:       number;
     country:     string;
-    lat:         number;
-    long:        number;
-    timezone_id: string;
 }
