@@ -7,7 +7,7 @@ export class LocationClass{
         return new LocationClass(
             obj["city"],
             obj["country"],
-            obj["region"]
+            obj["region"],
         )
     }
 }

@@ -12,5 +12,7 @@ export class WindClass {
     public speed: number
   ) {}
 
-
+  getWindSpeed(): number{
+    return this.speed
+  }
 }

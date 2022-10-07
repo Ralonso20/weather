@@ -5,7 +5,6 @@ import "../interfaces/weatherInterface"
 const defaultUrl = http.defaults.url
 export class weatherService{
     async getAll(searchLocation: string){
-        
-        return http.get<Weather>(`${defaultUrl}`, { params: { location: searchLocation } })
+        return http.get<any>(`${defaultUrl}`, { params: { location: searchLocation } })
     }
 }

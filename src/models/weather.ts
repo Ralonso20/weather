@@ -2,7 +2,7 @@ import { CurrentObservation, Forecast, Location, Weather } from './../interfaces
 import { CurrentObservationClass } from './currentObservation';
 import { LocationClass } from './location';
 export class WeatherClass{
-    constructor(public location: Location, public current_observation: CurrentObservation, public forecasts: Forecast[]){
+    constructor(public location: LocationClass, public current_observation: CurrentObservationClass, public forecasts: Forecast[]){
         
     }
     
@@ -10,8 +10,36 @@ export class WeatherClass{
         return new WeatherClass(
             LocationClass.createLocation(obj["location"]),
             CurrentObservationClass.createCurrentObservation(obj["current_observation"]),
-            obj["forectas"]
+            obj["forecasts"]
         )
+    }
+
+    getTemperature(): number{
+        return Math.round((this.current_observation.getTemperature() - 32) * 5/9)
+    }
+
+    getLocation(): string{
+        return `${this.location.city}, ${this.location.country}`
+    }
+
+    getWeatherState(): string{
+        return this.current_observation.getWeatherState()
+    }
+
+    getPubDate(): string{
+        return this.current_observation.getPubDate().toUTCString()
+    }
+
+    getHumidity(): number{
+        return this.current_observation.getHumidity()
+    }
+
+    getPressure(): number{
+        return this.current_observation.getPressure()
+    }
+
+    getWindSpeed(): number{
+        return this.current_observation.getWindSpeed()
     }
 }
 

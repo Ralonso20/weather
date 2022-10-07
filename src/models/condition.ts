@@ -10,4 +10,8 @@ export class ConditionClass {
     public text: string,
     public temperature: number
   ) {}
+
+  getWeatherState(): string{
+    return this.text
+  }
 }

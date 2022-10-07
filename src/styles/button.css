@@ -3,6 +3,7 @@
   background-color: rgba(164, 176, 190, 0.5);
   border-radius: 20px;
   width: 50%;
+  margin-top: 5em;
 }
 
 .mui-button:hover {
@@ -26,5 +27,6 @@
 @media (max-width: 768px) {
   .mui-button {
     width: 100%;
+    margin-top: 0;
   }
 }

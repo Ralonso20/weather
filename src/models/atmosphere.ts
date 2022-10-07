@@ -11,4 +11,12 @@ export class AtmosphereClass {
     public pressure: number,
     public rising: number
   ) {}
+
+  getHumidity(): number{
+    return this.humidity
+  }
+
+  getPressure(): number{
+    return this.pressure
+  }
 }
