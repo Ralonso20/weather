@@ -75,6 +75,10 @@
     border-radius: 0;
   }
 
+  .card .weatherStateContainer {
+    margin: 0.5em;
+  }
+
   .tableText {
     font-size: 1em;
   }
