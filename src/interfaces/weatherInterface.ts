@@ -1,7 +1,7 @@
 export interface Weather {
     location:            Location;
     current_observation: CurrentObservation;
-    forecasts:           Forecast[];
+    forecasts:           Forecast;
 }
 
 export interface CurrentObservation {
@@ -31,12 +31,15 @@ export interface Wind {
 }
 
 export interface Forecast {
+    data: Array<dataForecast>
+}
+
+export interface dataForecast {
     day:  string;
     date: number;
     low:  number;
     high: number;
     text: string;
-    code: number;
 }
 
 export interface Location {

@@ -1,8 +1,8 @@
 import { CurrentObservationClass } from './currentObservation';
-import { ForecastClass } from './forecast';
+import { DataForecast, ForecastClass } from './forecast';
 import { LocationClass } from './location';
 export class WeatherClass{
-    constructor(public location: LocationClass, public current_observation: CurrentObservationClass, public forecasts: ForecastClass[]){
+    constructor(public location: LocationClass, public current_observation: CurrentObservationClass, public forecasts: ForecastClass){
         
     }
     
@@ -10,7 +10,7 @@ export class WeatherClass{
         return new WeatherClass(
             LocationClass.createLocation(obj["location"]),
             CurrentObservationClass.createCurrentObservation(obj["current_observation"]),
-            obj["forecasts"]
+            ForecastClass.createForecast(obj["forecasts"])
         )
     }
 
@@ -40,6 +40,10 @@ export class WeatherClass{
 
     getWindSpeed(): number{
         return this.current_observation.getWindSpeed()
+    }
+
+    getDataForecast(): Array<DataForecast> {
+        return this.forecasts.getDataForecast()
     }
 }
 

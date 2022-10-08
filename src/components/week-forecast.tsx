@@ -5,9 +5,10 @@ import { MouseEvent } from "react";
 import Typography from "@mui/material/Typography/Typography";
 import WbSunnyIcon from "@mui/icons-material/WbSunny";
 import styleForecast from "../styles/forecastWeather.module.css";
-import iconStyle from "../styles/iconStyles.module.css"
+import iconStyle from "../styles/iconStyles.module.css";
+import { DataForecast } from "../models/forecast";
 export const WeekForecast = (props: any) => {
-  const { isShown, setIsShown } = props;
+  const { isShown, setIsShown, forecastData } = props;
   const handleClick = (event: MouseEvent<HTMLButtonElement, Event>) => {
     setIsShown(!isShown);
   };
@@ -22,17 +23,21 @@ export const WeekForecast = (props: any) => {
         >
           X
         </Button>
-        <div className={styleForecast.container}>
-          <div className={styleForecast.infoContainer}>
-            <Typography variant="h5" sx={{color: "mediumslateblue"}}>Sunday</Typography>
-            <Typography variant="h5">Clear</Typography>
-            <Typography variant="h5">Min 1° | Max 12°</Typography>
+        {forecastData.map((item: DataForecast) => (
+          <div className={styleForecast.container}>
+            <div className={styleForecast.infoContainer}>
+              <Typography variant="h5" sx={{ color: "mediumslateblue" }}>
+                {item.day}
+              </Typography>
+              <Typography variant="h5">{item.text}</Typography>
+              <Typography variant="h5">Min {item.getMinTemperature()}° | Max {item.getMaxTemperature()}°</Typography>
+            </div>
+            <div className={styleForecast.iconContainer}>
+              <WbSunnyIcon sx={{ fontSize: "3em" }}></WbSunnyIcon>
+              <Typography variant="h5">{item.getDate()}</Typography>
+            </div>
           </div>
-          <div className={styleForecast.iconContainer}>
-            <WbSunnyIcon sx={{fontSize: "3em"}}></WbSunnyIcon>
-            <Typography variant="h5">Feb 23</Typography>
-          </div>
-        </div>
+        ))}
       </div>
     </>
   );

@@ -9,7 +9,7 @@ import { SearchInput } from "../components/common/search";
 import { Typography } from "@mui/material";
 import { weatherService } from "../service/weather-service";
 import { WeatherClass } from "../models/weather";
-import styleButton from "../styles/button.module.css"
+import styleButton from "../styles/button.module.css";
 
 const Home: NextPage = () => {
   const [isShown, setIsShown] = useState(false);
@@ -20,7 +20,7 @@ const Home: NextPage = () => {
 
   useEffect(() => {
     new weatherService()
-      .getAll("london")
+      .getAll("buenos aires")
       .then((response) => {
         let dataList: Array<any> = [];
         dataList.push(response.data);
@@ -69,18 +69,18 @@ const Home: NextPage = () => {
                     <col className={mainStyles.colLeft} />
                   </colgroup>
                   <div className={mainStyles.rowContainer}>
-                  <tr className={mainStyles.tableText}>
-                    <td>Humidity</td>
-                    <td>{item.getHumidity()}%</td>
-                  </tr>
-                  <tr className={mainStyles.tableText}>
-                    <td >Pressure</td>
-                    <td>{item.getPressure()} mB</td>
-                  </tr>
-                  <tr className={mainStyles.tableText}>
-                    <td >Wind/sp</td>
-                    <td>{item.getWindSpeed()} km/h</td>
-                  </tr>
+                    <tr className={mainStyles.tableText}>
+                      <td>Humidity</td>
+                      <td>{item.getHumidity()}%</td>
+                    </tr>
+                    <tr className={mainStyles.tableText}>
+                      <td>Pressure</td>
+                      <td>{item.getPressure()} mB</td>
+                    </tr>
+                    <tr className={mainStyles.tableText}>
+                      <td>Wind/sp</td>
+                      <td>{item.getWindSpeed()} km/h</td>
+                    </tr>
                   </div>
                 </table>
               </div>
@@ -98,6 +98,7 @@ const Home: NextPage = () => {
             <WeekForecast
               isShown={isShown}
               setIsShown={setIsShown}
+              forecastData={item.getDataForecast()}
             ></WeekForecast>
           )}
         </main>
