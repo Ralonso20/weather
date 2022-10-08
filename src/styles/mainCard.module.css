@@ -7,7 +7,6 @@
   transition: color 0.15s ease, border-color 0.15s ease;
   width: 80%;
   height: 80vh;
-  overflow: auto;
 }
 
 .mainCard {
@@ -16,6 +15,7 @@
 
 .secondCard {
   background-color: rgba(241, 242, 246, 0.8);
+  overflow: auto;
 }
 
 .tableContainer {
@@ -76,7 +76,7 @@
     border-radius: 0;
   }
 
-  .card .weatherStateContainer {    background-color: rgba(241, 242, 246, 0.8);
+  .card .weatherStateContainer {  
     margin: 0.5em;
   }
 
