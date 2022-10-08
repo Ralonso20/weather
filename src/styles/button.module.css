@@ -1,4 +1,4 @@
-.mui-button {
+.muiButton {
   color: white;
   background-color: rgba(164, 176, 190, 0.5);
   border-radius: 20px;
@@ -6,7 +6,7 @@
   margin-top: 5em;
 }
 
-.mui-button:hover {
+.muiButton:hover {
   background-color: rgba(193, 206, 222, 0.5);
 }
 

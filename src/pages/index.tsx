@@ -9,7 +9,7 @@ import { SearchInput } from "../components/common/search";
 import { Typography } from "@mui/material";
 import { weatherService } from "../service/weather-service";
 import { WeatherClass } from "../models/weather";
-import { AxiosResponse } from "axios";
+import styleButton from "../styles/button.module.css"
 
 const Home: NextPage = () => {
   const [isShown, setIsShown] = useState(false);
@@ -88,7 +88,7 @@ const Home: NextPage = () => {
                 onClick={(e) => handleClick(e)}
                 variant="contained"
                 size="large"
-                className="mui-button"
+                className={styleButton.muiButton}
               >
                 Week forecast
               </Button>
