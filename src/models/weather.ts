@@ -1,8 +1,8 @@
-import { CurrentObservation, Forecast, Location, Weather } from './../interfaces/weatherInterface';
 import { CurrentObservationClass } from './currentObservation';
+import { ForecastClass } from './forecast';
 import { LocationClass } from './location';
 export class WeatherClass{
-    constructor(public location: LocationClass, public current_observation: CurrentObservationClass, public forecasts: Forecast[]){
+    constructor(public location: LocationClass, public current_observation: CurrentObservationClass, public forecasts: ForecastClass[]){
         
     }
     
