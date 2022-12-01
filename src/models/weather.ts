@@ -27,7 +27,7 @@ export class WeatherClass{
     }
 
     getPubDate(): string{
-        return this.current_observation.getPubDate().toUTCString()
+        return this.current_observation.getPubDate()
     }
 
     getHumidity(): number{
@@ -44,6 +44,16 @@ export class WeatherClass{
 
     getDataForecast(): Array<DataForecast> {
         return this.forecasts.getDataForecast()
+    }
+
+    //get min temperature
+    getMinTemperature(): number{
+        return this.forecasts.getDataForecast()[0].getMinTemperature()
+    }
+
+    //get max temperature
+    getMaxTemperature(): number{
+        return this.forecasts.getDataForecast()[0].getMaxTemperature()
     }
 }
 

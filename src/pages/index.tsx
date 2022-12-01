@@ -65,7 +65,7 @@ const Home: NextPage = () => {
                   {item.getTemperature()}°
                 </Typography>
                 <Typography variant="h4">{item.getWeatherState()}</Typography>
-                <Typography variant="h4">Min 11° | Max:16°</Typography>
+                <Typography variant="h4">Min {item.getMinTemperature()}° | Max {item.getMaxTemperature()}°</Typography>
                 <Typography variant="h4">{item.getPubDate()}</Typography>
               </div>
               <div className={mainStyles.tableContainer}>

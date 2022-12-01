@@ -1,6 +1,7 @@
 import { ConditionClass } from "./condition";
 import { AtmosphereClass } from "./atmosphere";
 import { WindClass } from "./wind";
+import * as dateHelper from "../helpers/dateHelper"
 import {
   Atmosphere,
   Condition,
@@ -12,7 +13,7 @@ export class CurrentObservationClass {
     public wind: WindClass,
     public atmosphere: AtmosphereClass,
     public condition: ConditionClass,
-    public pubDate: Date
+    public pubDate: number
   ) {}
 
   static createCurrentObservation(obj: Object): CurrentObservationClass {
@@ -20,7 +21,7 @@ export class CurrentObservationClass {
       WindClass.createWind(obj["wind"]),
       AtmosphereClass.createAtmosphere(obj["atmosphere"]),
       ConditionClass.createCondition(obj["condition"]),
-      new Date(obj["pubDate"])
+      obj["pubDate"]
     );
   }
 
@@ -32,8 +33,8 @@ export class CurrentObservationClass {
     return this.condition.getWeatherState()
   }
 
-  getPubDate(): Date{
-    return this.pubDate
+  getPubDate(): string{
+    return dateHelper.convertMillisecondsToDateAndTime(1669863600)
   }
 
   getHumidity(): number{
