@@ -18,6 +18,13 @@
   background-color: rgba(164, 176, 190, 0.5) !important;
 }
 
+.locationButton {
+  display: flex !important;
+  width: 80%;
+  border-radius: 5px;
+  margin-top: 1em;
+}
+
 @media (max-width: 768px) {
   .mui-button {
     width: 100% !important;

@@ -1,0 +1,43 @@
+.header {
+  color: #5352ed;
+  padding: 1em;
+}
+
+.card {
+  display: flex;
+  height: 50%;
+  width: 90%;
+  flex-direction: column;
+}
+
+.divider{
+  height: 1px;
+  width: 80%;
+  background-color: #e0e0e0;
+  margin: 1em 0;
+  display: flex;
+  color: #757575;
+  padding: 0 1em;
+  align-items: center;
+  justify-content: center;
+}
+
+.container{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin: auto 1em;
+}
+
+.input{
+  width: 100%;
+  height: 2em;
+  border: none;
+  font-size: 1.5em;
+  border-color: #5352ed !important;
+}
+
+.MuiInputBase-root{
+  border-color: #5352ed !important;
+}
