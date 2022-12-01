@@ -26,7 +26,7 @@ export const WeekForecast = (props: any) => {
         {forecastData.map((item: DataForecast) => (
           <div className={styleForecast.container}>
             <div className={styleForecast.infoContainer}>
-              <Typography variant="h5" sx={{ color: "mediumslateblue" }}>
+              <Typography variant="h5" sx={{ color: "#5352ed" }}>
                 {item.day}
               </Typography>
               <Typography variant="h5">{item.text}</Typography>

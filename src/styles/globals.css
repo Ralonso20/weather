@@ -13,12 +13,6 @@ body {
     Roboto, Segoe UI, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans,
     Helvetica Neue, sans-serif;
   background: rgb(1, 0, 27);
-  background: radial-gradient(
-    circle,
-    rgba(1, 0, 27, 1) 0%,
-    rgba(9, 9, 121, 1) 29%,
-    rgba(0, 212, 255, 1) 100%
-  );
 }
 
 a {
