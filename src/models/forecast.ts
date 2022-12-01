@@ -51,4 +51,8 @@ export class DataForecast{
     getDate(): string{
         return `${months[this.date.getMonth()]} ${this.date.getDate()}`
     }
+
+    getText(): string{
+        return this.text
+    }
 }

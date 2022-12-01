@@ -12,12 +12,7 @@
 
 .closeButton {
   display: flex !important;
-  color: #2f3542 !important;
-  font-size: large !important;
-  width: 4rem;
-  height: 4rem;
-  border-radius: 80% !important;
-  background-color: rgba(193, 206, 222, 0.7) !important;
+  color: white !important;
 }
 
 .closeButton:hover {

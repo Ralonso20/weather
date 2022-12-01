@@ -20,7 +20,7 @@ const Home: NextPage = () => {
 
   useEffect(() => {
     new weatherService()
-      .getAll("buenos aires")
+      .getAll("london")
       .then((response) => {
         let dataList: Array<any> = [];
         dataList.push(response.data);
