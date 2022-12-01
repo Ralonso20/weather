@@ -24,8 +24,8 @@ export const WeekForecast = (props: any) => {
         >
           <ArrowBackIcon />
         </IconButton>
-        {forecastData.map((item: DataForecast) => (
-          <div className={styleForecast.container}>
+        {forecastData.map((item: DataForecast, index) => (
+          <div key={index} className={styleForecast.container}>
             <div className={styleForecast.infoContainer}>
               <Typography variant="h5" sx={{ color: "#5352ed" }}>
                 {item.day}
@@ -34,7 +34,7 @@ export const WeekForecast = (props: any) => {
               <Typography variant="h5">Min {item.getMinTemperature()}° | Max {item.getMaxTemperature()}°</Typography>
             </div>
             <div className={styleForecast.iconContainer}>
-              <WeatherIcon weatherState={item.getText()} sx={{ fontSize: "3em" }}></WeatherIcon>
+              <WeatherIcon weatherstate={item.getText()} sx={{ fontSize: "3em" }}></WeatherIcon>
               <Typography variant="h5">{item.getDate()}</Typography>
             </div>
           </div>
