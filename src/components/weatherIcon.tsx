@@ -22,7 +22,7 @@ export const WeatherIcon = (props: any) => {
         },
     ];
 
-    const weatherState = props.weatherState;
+    const weatherState = props.weatherstate;
     const weatherIcon = weatherStates.find((item) => weatherState.toLowerCase().includes(item.name)) || weatherStates[0];
     return weatherIcon?.icon;
 }

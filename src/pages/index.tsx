@@ -47,8 +47,8 @@ const Home: NextPage = () => {
           Your browser does not support the video tag.
         </video>
       </div>
-      {data?.map((item) => (
-        <main className={styles.main}>
+      {data?.map((item, index) => (
+        <main key={index} className={styles.main}>
           {!isShown && (
             <div
               className={`${mainStyles.card} ${mainStyles.mainCard} ${mainStyles.swingBottom}`}
@@ -74,7 +74,7 @@ const Home: NextPage = () => {
                     <col className={mainStyles.colRight} />
                     <col className={mainStyles.colLeft} />
                   </colgroup>
-                  <div className={mainStyles.rowContainer}>
+                  <tbody className={mainStyles.rowContainer}>
                     <tr className={mainStyles.tableText}>
                       <td>Humidity</td>
                       <td>{item.getHumidity()}%</td>
@@ -87,7 +87,7 @@ const Home: NextPage = () => {
                       <td>Wind/sp</td>
                       <td>{item.getWindSpeed()} km/h</td>
                     </tr>
-                  </div>
+                  </tbody>
                 </table>
               </div>
               <Button
