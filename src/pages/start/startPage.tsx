@@ -8,7 +8,15 @@ import { Box } from "@mui/system";
 import styles from "../../styles/Home.module.css";
 import styleButton from "../../styles/button.module.css";
 import { Divider, TextField } from "@mui/material";
+import * as locationHelper from "../../helpers/userLocation";
+import { locationService } from "../../service/location-service";
 export default function Start() {
+
+  const getLocation = async () => {
+    const location = await locationHelper.validateUserLocation();
+    console.log(location);
+  }
+  
   return (
     <>
       <Box className={`${styles.main}`}>
@@ -32,6 +40,7 @@ export default function Start() {
             <Button
               className={`${styleButton.muiButton} ${styleButton.locationButton}`}
               variant="contained"
+              onClick={locationService.getLocation}
             >
               Get Device Location
             </Button>
