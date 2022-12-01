@@ -8,15 +8,38 @@ import { Box } from "@mui/system";
 import styles from "../../styles/Home.module.css";
 import styleButton from "../../styles/button.module.css";
 import { Divider, TextField } from "@mui/material";
-import * as locationHelper from "../../helpers/userLocation";
 import { locationService } from "../../service/location-service";
+import { useEffect, useState } from "react";
+import { useRouter } from "next/router";
 export default function Start() {
+  const router = useRouter();
+  const [field, setField] = useState("");
 
-  const getLocation = async () => {
-    const location = await locationHelper.validateUserLocation();
-    console.log(location);
-  }
-  
+  const getLocationAndRedirect = async () => {
+    const promiseLocation = locationService.getLocation();
+    promiseLocation
+      .then((response) => {
+        locationService.setLocation(response);
+        router.push("/home");
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
+  const setInputLocationAndRedirect = (event: any) => {
+    locationService.setLocation(field);
+    router.push("/home");
+  };
+
+  const handleChange = (event) => {
+    let { value } = event.target;
+    setField(value);
+  };
+
+  useEffect(() => {
+    
+  }, [field]);
   return (
     <>
       <Box className={`${styles.main}`}>
@@ -24,14 +47,23 @@ export default function Start() {
           <Box component="header" className={`${startPage.header}`}>
             <Typography variant="h4">Clyma</Typography>
           </Box>
-          <Divider variant="middle" sx={{width:'100%', margin:'0'}}/>
+          <Divider variant="middle" sx={{ width: "100%", margin: "0" }} />
           <CardContent className={startPage.container}>
             <TextField
               id="outlined-basic"
-              label="Enter city name"
+              label="Location"
               variant="outlined"
-              className={startPage.input}
+              onChange={handleChange}
+              name="location"
+              value={field}
             />
+            <Button
+              variant="contained"
+              className={styleButton.muiButton}
+              onClick={setInputLocationAndRedirect}
+            >
+              To forecast
+            </Button>
           </CardContent>
           <CardActions className={startPage.container}>
             <Divider variant="middle" className={`${startPage.divider}`}>
@@ -40,7 +72,7 @@ export default function Start() {
             <Button
               className={`${styleButton.muiButton} ${styleButton.locationButton}`}
               variant="contained"
-              onClick={locationService.getLocation}
+              onClick={getLocationAndRedirect}
             >
               Get Device Location
             </Button>

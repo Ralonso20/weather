@@ -1,17 +1,17 @@
 import Button from "@mui/material/Button";
 import type { NextPage } from "next";
 import Head from "next/head";
-import { WeekForecast } from "../components/week-forecast";
-import styles from "../styles/Home.module.css";
-import mainStyles from "../styles/mainCard.module.css";
+import { WeekForecast } from "../../components/week-forecast";
+import styles from "../../styles/Home.module.css";
+import mainStyles from "../../styles/mainCard.module.css";
 import { useState, MouseEvent, useEffect } from "react";
-import { SearchInput } from "../components/common/search";
+import { SearchInput } from "../../components/common/search";
 import { Typography } from "@mui/material";
-import { weatherService } from "../service/weather-service";
-import { WeatherClass } from "../models/weather";
-import styleButton from "../styles/button.module.css";
-
-const Home: NextPage = () => {
+import { weatherService } from "../../service/weather-service";
+import { WeatherClass } from "../../models/weather";
+import styleButton from "../../styles/button.module.css";
+import { locationService } from "../../service/location-service";
+const Home: NextPage = (props) => {
   const [isShown, setIsShown] = useState(false);
   const [data, setData] = useState<Array<WeatherClass>>();
   const handleClick = (event: MouseEvent<HTMLButtonElement, Event>) => {
@@ -19,8 +19,9 @@ const Home: NextPage = () => {
   };
 
   useEffect(() => {
+    console.log(locationService.getStorageLocation())
     new weatherService()
-      .getAll("london")
+      .getAll(locationService.getStorageLocation())
       .then((response) => {
         let dataList: Array<any> = [];
         dataList.push(response.data);
