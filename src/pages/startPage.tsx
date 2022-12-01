@@ -4,7 +4,7 @@ import CardContent from "@mui/material/CardContent";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 
-export const Start = () => {
+export default function Start(){
   return (
     <>
       <Card sx={{ minWidth: 275 }}>
