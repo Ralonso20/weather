@@ -1,7 +1,7 @@
 .card {
   margin: 1rem;
   text-align: center;
-  color: white;
+  color: #3c3a3a;
   text-decoration: none;
   border-radius: 10px;
   transition: color 0.15s ease, border-color 0.15s ease;
