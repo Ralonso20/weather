@@ -1,3 +1,4 @@
+import toast,{ Toaster } from "react-hot-toast";
 //function to get user location
 export const getUserLocation = async (): Promise<[number, number]> => {
    return new Promise((resolve, reject) => {
@@ -6,7 +7,7 @@ export const getUserLocation = async (): Promise<[number, number]> => {
                 resolve([position.coords.latitude, position.coords.longitude]);
              },
              (err) => {
-                alert('no se pudo obtener la ubicación');
+                toast.error('no se pudo obtener la ubicación');
                 reject();
              }
         );
@@ -14,13 +15,13 @@ export const getUserLocation = async (): Promise<[number, number]> => {
 }
 
 //function to validate if the user has allowed the location
-export const validateUserLocation = async (): Promise<boolean> => {
+export const validateUserLocation = async (): Promise<boolean | string> => {
     return new Promise((resolve, reject) => {
           navigator.permissions.query({ name: "geolocation" }).then((result) => {
                  if (result.state === "granted") {
                  resolve(true);
                  } else if (result.state === "prompt") {
-                 resolve(false);
+                 resolve(result.state);
                  } else if (result.state === "denied") {
                  resolve(false);
                  }
@@ -46,3 +47,4 @@ export const validateGeolocation = (): boolean => {
         return false;
     }
 }
+
