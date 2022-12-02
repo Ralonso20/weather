@@ -20,7 +20,12 @@ export default function Start() {
   const [inputError, setInputError] = useState(false);
   const getLocationAndRedirect = async (location: string | undefined) => {
     locationService.setLocation(location);
-    getForecastData().then((data) => {redirect();})
+    const promise = getForecastData().then((data) => {redirect();})
+    toast.promise(promise, {
+      loading: "Loading",
+      success: "Got the data",
+      error: "Error when fetching",
+    });
   };
 
   const locationPermissionHandler = async () => {
@@ -30,7 +35,12 @@ export default function Start() {
 
   const setInputLocationAndRedirect = async () => {
     locationService.setLocation(field);
-    getForecastData().then((data) => {redirect(); setInputError(false)}).catch((error) => {toast.error("Invalid location");setInputError(true)})
+    const promise = getForecastData().then((data) => {redirect(); setInputError(false)}).catch((error) => {setInputError(true)})
+    toast.promise(promise, {
+      loading: "Loading",
+      success: "Got the data",
+      error: "Invalid Location",
+    });
   };
 
   const handleChange = (event) => {
@@ -45,13 +55,7 @@ export default function Start() {
   };
 
   const redirect = () => {
-    const navigate = router.push("/home");
-    toast.promise(navigate, {
-      loading: "Loading",
-      success: "Got the data",
-      error: "Error when fetching",
-    });
-    navigate;
+    router.push("/home");
   };
   return (
     <>
