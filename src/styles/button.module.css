@@ -1,9 +1,8 @@
 .muiButton {
   color: white;
   background-color: #5352ed !important;
-  border-radius: 20px;
   width: 50%;
-  margin-top: 5em;
+  margin-top: 5em !important;
 }
 
 .muiButton:hover {

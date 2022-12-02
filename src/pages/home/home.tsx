@@ -19,7 +19,6 @@ const Home: NextPage = (props) => {
   };
 
   useEffect(() => {
-    console.log(locationService.getStorageLocation())
     new weatherService()
       .getAll(locationService.getStorageLocation())
       .then((response) => {
@@ -31,9 +30,6 @@ const Home: NextPage = (props) => {
       .catch((error) => {
         console.log(error);
       })
-      .finally(() => {
-        console.log("Data traida exitosamente");
-      });
   }, []);
   return (
     <div>
