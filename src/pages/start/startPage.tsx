@@ -11,6 +11,7 @@ import { Divider, TextField } from "@mui/material";
 import { locationService } from "../../service/location-service";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
+import StartBackground from "../../components/startBackground/startBackground";
 export default function Start() {
   const router = useRouter();
   const [field, setField] = useState("");
@@ -42,6 +43,7 @@ export default function Start() {
   }, [field]);
   return (
     <>
+      <StartBackground> 
       <Box className={`${styles.main}`}>
         <Card className={`${startPage.card}`}>
           <Box component="header" className={`${startPage.header}`}>
@@ -79,6 +81,7 @@ export default function Start() {
           </CardActions>
         </Card>
       </Box>
+      </StartBackground>
     </>
   );
 }
