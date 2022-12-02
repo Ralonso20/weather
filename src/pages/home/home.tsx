@@ -7,30 +7,17 @@ import mainStyles from "../../styles/mainCard.module.css";
 import { useState, MouseEvent, useEffect } from "react";
 import { SearchInput } from "../../components/common/search";
 import { Typography } from "@mui/material";
-import { weatherService } from "../../service/weather-service";
 import { WeatherClass } from "../../models/weather";
 import styleButton from "../../styles/button.module.css";
 import { locationService } from "../../service/location-service";
+import { weatherService } from "../../service/weather-service";
 const Home: NextPage = (props) => {
   const [isShown, setIsShown] = useState(false);
-  const [data, setData] = useState<Array<WeatherClass>>();
+  const [data, setData] = useState<Array<WeatherClass>>(weatherService.getStorage());
   const handleClick = (event: MouseEvent<HTMLButtonElement, Event>) => {
     setIsShown((current: boolean) => !current);
   };
 
-  useEffect(() => {
-    new weatherService()
-      .getAll(locationService.getStorageLocation())
-      .then((response) => {
-        let dataList: Array<any> = [];
-        dataList.push(response.data);
-        dataList = dataList.map((d) => WeatherClass.createWeather(d));
-        setData(dataList);
-      })
-      .catch((error) => {
-        console.log(error);
-      })
-  }, []);
   return (
     <div>
       <Head>

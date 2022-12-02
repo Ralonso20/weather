@@ -7,7 +7,7 @@ export const getUserLocation = async (): Promise<[number, number]> => {
                 resolve([position.coords.latitude, position.coords.longitude]);
              },
              (err) => {
-                toast.error('no se pudo obtener la ubicación');
+                toast.error("Permission denied");
                 reject();
              }
         );

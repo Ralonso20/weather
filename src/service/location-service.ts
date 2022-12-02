@@ -7,7 +7,6 @@ class LocationService {
             const location = await locationHelper.getUserLocation();
             return await locationHelper.getCityName(location[0], location[1]);
         }else{
-            toast.error("no se pudo obtener la ubicación");
             return false
         }
     }
@@ -16,7 +15,7 @@ class LocationService {
         return await locationHelper.validateUserLocation();
     }
 
-    setLocation = (location: string | boolean) => {
+    setLocation = (location: string | undefined) => {
         this.location = location;
     }
 

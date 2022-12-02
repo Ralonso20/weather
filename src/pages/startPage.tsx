@@ -5,39 +5,32 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import startPage from "./startPage.module.css";
 import { Box } from "@mui/system";
-import styles from "../../styles/Home.module.css";
-import styleButton from "../../styles/button.module.css";
+import styles from "../styles/Home.module.css";
+import styleButton from "../styles/button.module.css";
 import { Divider, TextField } from "@mui/material";
-import { locationService } from "../../service/location-service";
+import { locationService } from "../service/location-service";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
-import StartBackground from "../../components/startBackground/startBackground";
+import StartBackground from "../components/startBackground/startBackground";
 import toast, { Toaster } from "react-hot-toast";
+import { weatherService } from "../service/weather-service";
 export default function Start() {
   const router = useRouter();
   const [field, setField] = useState("");
-
-  const getLocationAndRedirect = async (location: string | boolean) => {
-    
-    const navigate = router.push("/home");
-    toast.promise(navigate, {
-      loading: "Loading",
-      success: "Got the data",
-      error: "Error when fetching",
-    });
-
+  const [inputError, setInputError] = useState(false);
+  const getLocationAndRedirect = async (location: string | undefined) => {
     locationService.setLocation(location);
-    navigate;
+    getForecastData().then((data) => {redirect();})
   };
 
   const locationPermissionHandler = async () => {
     const permission = await locationService.getLocation();
-    permission ? getLocationAndRedirect(permission) : toast.error("Permission denied");
+    permission ? getLocationAndRedirect(permission) : false;
   };
 
-  const setInputLocationAndRedirect = (event: any) => {
+  const setInputLocationAndRedirect = async () => {
     locationService.setLocation(field);
-    router.push("/home");
+    getForecastData().then((data) => {redirect(); setInputError(false)}).catch((error) => {toast.error("Invalid location");setInputError(true)})
   };
 
   const handleChange = (event) => {
@@ -46,6 +39,20 @@ export default function Start() {
   };
 
   useEffect(() => {}, [field]);
+
+  const getForecastData = async() => {
+    return await weatherService.gel(locationService.getStorageLocation())
+  };
+
+  const redirect = () => {
+    const navigate = router.push("/home");
+    toast.promise(navigate, {
+      loading: "Loading",
+      success: "Got the data",
+      error: "Error when fetching",
+    });
+    navigate;
+  };
   return (
     <>
       <Toaster position="top-center" reverseOrder={false} />
@@ -65,6 +72,7 @@ export default function Start() {
                 name="location"
                 value={field}
                 fullWidth
+                error={inputError}
               />
               <Button
                 variant="contained"
