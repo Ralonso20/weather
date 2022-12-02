@@ -30,7 +30,7 @@ export default function Start() {
 
   const setInputLocationAndRedirect = async () => {
     locationService.setLocation(field);
-    getForecastData().then((data) => {redirect(); setInputError(false)}).catch((error) => {setInputError(true)})
+    getForecastData().then((data) => {redirect(); setInputError(false)}).catch((error) => {toast.error("Invalid location");setInputError(true)})
   };
 
   const handleChange = (event) => {
