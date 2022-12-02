@@ -5,19 +5,19 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import startPage from "./startPage.module.css";
 import { Box } from "@mui/system";
-import styles from "../../styles/Home.module.css";
-import styleButton from "../../styles/button.module.css";
+import styles from "../styles/Home.module.css";
+import styleButton from "../styles/button.module.css";
 import { Divider, TextField } from "@mui/material";
-import { locationService } from "../../service/location-service";
+import { locationService } from "../service/location-service";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
-import StartBackground from "../../components/startBackground/startBackground";
+import StartBackground from "../components/startBackground/startBackground";
 import toast, { Toaster } from "react-hot-toast";
 export default function Start() {
   const router = useRouter();
   const [field, setField] = useState("");
 
-  const getLocationAndRedirect = async (location: string | boolean) => {
+  const getLocationAndRedirect = async (location: string | undefined) => {
     
     const navigate = router.push("/home");
     toast.promise(navigate, {

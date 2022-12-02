@@ -16,7 +16,7 @@ class LocationService {
         return await locationHelper.validateUserLocation();
     }
 
-    setLocation = (location: string | boolean) => {
+    setLocation = (location: string | undefined) => {
         this.location = location;
     }
 
