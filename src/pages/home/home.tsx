@@ -45,8 +45,8 @@ const Home: NextPage = (props) => {
     }, {id: "locationrjc"});
   };
 
-  const getForecastData = async () => {
-    return await weatherService.getAll(locationService.getStorageLocation());
+  const getForecastData = () => {
+    return weatherService.getAll(locationService.getStorageLocation());
   };
 
   useEffect(() => {
