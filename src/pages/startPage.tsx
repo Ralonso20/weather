@@ -14,18 +14,16 @@ import { useRouter } from "next/router";
 import StartBackground from "../components/startBackground/startBackground";
 import toast, { Toaster } from "react-hot-toast";
 import { weatherService } from "../service/weather-service";
+import LoadingButton from "@mui/lab/LoadingButton";
 export default function Start() {
   const router = useRouter();
   const [field, setField] = useState("");
+  const [loading, setLoading] = useState(false);
   const [inputError, setInputError] = useState(false);
   const getLocationAndRedirect = async (location: string | undefined) => {
+    setLoading(true);
     locationService.setLocation(location);
-    const promise = getForecastData().then((data) => {redirect();})
-    toast.promise(promise, {
-      loading: "Loading",
-      success: "Got the data",
-      error: "Error when fetching",
-    });
+    getForecastData().then((data) => {redirect();}).catch((error) => {handleChangeLoading()});
   };
 
   const locationPermissionHandler = async () => {
@@ -34,13 +32,9 @@ export default function Start() {
   };
 
   const setInputLocationAndRedirect = async () => {
+    setLoading(true);
     locationService.setLocation(field);
-    const promise = getForecastData().then((data) => {redirect(); setInputError(false)}).catch((error) => {setInputError(true)})
-    toast.promise(promise, {
-      loading: "Loading",
-      success: "Got the data",
-      error: "Invalid Location",
-    });
+    getForecastData().then((data) => {redirect(); setInputError(false)}).catch((error) => {setInputError(true); handleChangeLoading();})
   };
 
   const handleChange = (event) => {
@@ -55,7 +49,13 @@ export default function Start() {
   };
 
   const redirect = () => {
-    router.push("/home");
+    router.push("/home").then(() => {
+      handleChangeLoading();
+    });
+  };
+
+  const handleChangeLoading = () => {
+    setLoading(false);
   };
   return (
     <>
@@ -77,26 +77,29 @@ export default function Start() {
                 value={field}
                 fullWidth
                 error={inputError}
+                disabled={loading}
               />
-              <Button
+              <LoadingButton
                 variant="contained"
-                className={styleButton.muiButton}
+                className={!loading ? `${styleButton.muiButton} ${styleButton.locationButton}` : styleButton.disableBtn}
                 onClick={setInputLocationAndRedirect}
+                loading={loading}
               >
                 To forecast
-              </Button>
+              </LoadingButton>
             </CardContent>
             <CardActions className={startPage.container}>
               <Divider variant="middle" className={`${startPage.divider}`}>
                 or
               </Divider>
-              <Button
-                className={`${styleButton.muiButton} ${styleButton.locationButton}`}
+              <LoadingButton
+                className={!loading ? `${styleButton.muiButton} ${styleButton.locationButton}` : styleButton.disableBtn}
                 variant="contained"
                 onClick={locationPermissionHandler}
+                loading={loading}
               >
                 Get Device Location
-              </Button>
+              </LoadingButton>
             </CardActions>
           </Card>
         </Box>

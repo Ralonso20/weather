@@ -24,6 +24,11 @@
   margin-top: 1em;
 }
 
+.disableBtn{
+  width: 80% !important;
+  margin-top: 5em !important;
+}
+
 @media (max-width: 768px) {
   .mui-button {
     width: 100% !important;

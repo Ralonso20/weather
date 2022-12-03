@@ -14,7 +14,7 @@
     overflow: hidden;
 }
 
-.background span {
+.background h6 {
     width: 20vmin;
     height: 20vmin;
     border-radius: 20vmin;
@@ -28,7 +28,7 @@
 }
 
 
-.background span:nth-child(0) {
+.background h6:nth-child(0) {
     color: #ffffff;
     top: 25%;
     left: 86%;
@@ -37,7 +37,7 @@
     transform-origin: 17vw 19vh;
     box-shadow: 40vmin 0 5.903333415008683vmin currentColor;
 }
-.background span:nth-child(1) {
+.background h6:nth-child(1) {
     color: #a600ff;
     top: 58%;
     left: 76%;
@@ -46,7 +46,7 @@
     transform-origin: 5vw -11vh;
     box-shadow: -40vmin 0 5.344203176966737vmin currentColor;
 }
-.background span:nth-child(2) {
+.background h6:nth-child(2) {
     color: #d30dcc;
     top: 37%;
     left: 97%;
@@ -55,7 +55,7 @@
     transform-origin: 16vw -18vh;
     box-shadow: 40vmin 0 5.8761100984541805vmin currentColor;
 }
-.background span:nth-child(3) {
+.background h6:nth-child(3) {
     color: #ffffff;
     top: 10%;
     left: 74%;
@@ -64,7 +64,7 @@
     transform-origin: 4vw -15vh;
     box-shadow: -40vmin 0 5.619526402312085vmin currentColor;
 }
-.background span:nth-child(4) {
+.background h6:nth-child(4) {
     color: #d30dcc;
     top: 75%;
     left: 61%;
@@ -73,7 +73,7 @@
     transform-origin: 8vw 8vh;
     box-shadow: 40vmin 0 5.0320601505470535vmin currentColor;
 }
-.background span:nth-child(5) {
+.background h6:nth-child(5) {
     color: #ffffff;
     top: 57%;
     left: 74%;
@@ -82,7 +82,7 @@
     transform-origin: -21vw -2vh;
     box-shadow: -40vmin 0 5.005630777723089vmin currentColor;
 }
-.background span:nth-child(6) {
+.background h6:nth-child(6) {
     color: #a600ff;
     top: 90%;
     left: 18%;
@@ -91,7 +91,7 @@
     transform-origin: 4vw 5vh;
     box-shadow: 40vmin 0 5.460306459253282vmin currentColor;
 }
-.background span:nth-child(7) {
+.background h6:nth-child(7) {
     color: #ffffff;
     top: 88%;
     left: 11%;
@@ -100,7 +100,7 @@
     transform-origin: -10vw -14vh;
     box-shadow: 40vmin 0 5.287788300346923vmin currentColor;
 }
-.background span:nth-child(8) {
+.background h6:nth-child(8) {
     color: #d30dcc;
     top: 56%;
     left: 100%;
@@ -109,7 +109,7 @@
     transform-origin: -7vw -12vh;
     box-shadow: -40vmin 0 5.529673800761703vmin currentColor;
 }
-.background span:nth-child(9) {
+.background h6:nth-child(9) {
     color: #ffffff;
     top: 50%;
     left: 91%;
@@ -118,7 +118,7 @@
     transform-origin: -23vw -23vh;
     box-shadow: -40vmin 0 5.128772519224476vmin currentColor;
 }
-.background span:nth-child(10) {
+.background h6:nth-child(10) {
     color: #ffffff;
     top: 54%;
     left: 81%;
@@ -127,7 +127,7 @@
     transform-origin: 23vw -6vh;
     box-shadow: -40vmin 0 5.5235555281965585vmin currentColor;
 }
-.background span:nth-child(11) {
+.background h6:nth-child(11) {
     color: #ffffff;
     top: 94%;
     left: 32%;
@@ -136,7 +136,7 @@
     transform-origin: -19vw 5vh;
     box-shadow: 40vmin 0 5.365827420866084vmin currentColor;
 }
-.background span:nth-child(12) {
+.background h6:nth-child(12) {
     color: #a600ff;
     top: 56%;
     left: 53%;
@@ -145,7 +145,7 @@
     transform-origin: -16vw -16vh;
     box-shadow: 40vmin 0 5.604231787814538vmin currentColor;
 }
-.background span:nth-child(13) {
+.background h6:nth-child(13) {
     color: #d30dcc;
     top: 99%;
     left: 54%;
@@ -154,7 +154,7 @@
     transform-origin: 22vw 13vh;
     box-shadow: 40vmin 0 5.51401492122449vmin currentColor;
 }
-.background span:nth-child(14) {
+.background h6:nth-child(14) {
     color: #a600ff;
     top: 99%;
     left: 70%;
@@ -163,7 +163,7 @@
     transform-origin: 7vw 8vh;
     box-shadow: 40vmin 0 5.239505914134049vmin currentColor;
 }
-.background span:nth-child(15) {
+.background h6:nth-child(15) {
     color: #a600ff;
     top: 93%;
     left: 56%;
@@ -172,7 +172,7 @@
     transform-origin: -15vw 17vh;
     box-shadow: 40vmin 0 5.1931551440675925vmin currentColor;
 }
-.background span:nth-child(16) {
+.background h6:nth-child(16) {
     color: #d30dcc;
     top: 34%;
     left: 24%;
@@ -181,7 +181,7 @@
     transform-origin: 25vw -1vh;
     box-shadow: -40vmin 0 5.951021963952117vmin currentColor;
 }
-.background span:nth-child(17) {
+.background h6:nth-child(17) {
     color: #d30dcc;
     top: 71%;
     left: 100%;
@@ -190,7 +190,7 @@
     transform-origin: 13vw -18vh;
     box-shadow: -40vmin 0 5.88939624903044vmin currentColor;
 }
-.background span:nth-child(18) {
+.background h6:nth-child(18) {
     color: #a600ff;
     top: 48%;
     left: 27%;
@@ -199,7 +199,7 @@
     transform-origin: 22vw 3vh;
     box-shadow: -40vmin 0 5.134402306244906vmin currentColor;
 }
-.background span:nth-child(19) {
+.background h6:nth-child(19) {
     color: #ffffff;
     top: 21%;
     left: 59%;

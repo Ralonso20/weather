@@ -3,26 +3,26 @@ import styles from "./background.module.css";
 export default function StartBackground({children}) {
   return (
     <Box className={styles.background}>
-      <span></span>
-      <span></span>
-      <span></span>
-      <span></span>
-      <span></span>
-      <span></span>
-      <span></span>
-      <span></span>
-      <span></span>
-      <span></span>
-      <span></span>
-      <span></span>
-      <span></span>
-      <span></span>
-      <span></span>
-      <span></span>
-      <span></span>
-      <span></span>
-      <span></span>
-      <span></span>
+      <h6></h6>
+      <h6></h6>
+      <h6></h6>
+      <h6></h6>
+      <h6></h6>
+      <h6></h6>
+      <h6></h6>
+      <h6></h6>
+      <h6></h6>
+      <h6></h6>
+      <h6></h6>
+      <h6></h6>
+      <h6></h6>
+      <h6></h6>
+      <h6></h6>
+      <h6></h6>
+      <h6></h6>
+      <h6></h6>
+      <h6></h6>
+      <h6></h6>
       {children}
     </Box>
   );
