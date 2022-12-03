@@ -15,8 +15,8 @@ class WeatherService{
             dataList.pop()
             dataList.push(response.data)
             dataList = dataList.map((forecast) => WeatherClass.createWeather(forecast))
-            return dataList
         })
+        return this.getStorage()
     }
 
     getStorage(){
