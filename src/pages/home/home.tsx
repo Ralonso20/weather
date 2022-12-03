@@ -3,7 +3,7 @@ import Head from "next/head";
 import { WeekForecast } from "../../components/week-forecast";
 import styles from "../../styles/Home.module.css";
 import mainStyles from "../../styles/mainCard.module.css";
-import { useState, MouseEvent} from "react";
+import { useState, MouseEvent, useEffect} from "react";
 import { SearchInput } from "../../components/common/search";
 import { Typography } from "@mui/material";
 import { WeatherClass } from "../../models/weather";
@@ -14,9 +14,11 @@ import toast, { Toaster } from "react-hot-toast";
 import StartBackground from "../../components/startBackground/startBackground";
 import LoadingButton from "@mui/lab/LoadingButton";
 import ErrorCard from "../../components/common/ErrorCard";
+import { useRouter } from "next/router";
 const Home: NextPage = (props) => {
   const [isShown, setIsShown] = useState(false);
   const [field, setField] = useState("");
+  const router = useRouter();
   const [data, setData] = useState<Array<WeatherClass>>(
     weatherService.getStorage()
   );
@@ -50,11 +52,22 @@ const Home: NextPage = (props) => {
     return await weatherService.gel(locationService.getStorageLocation());
   };
 
+  useEffect(() => {
+    if (weatherService.getNoData()) {
+      const redirect = router.push("/")
+      toast.promise(redirect, {
+        loading: "Redirecting",
+        success: "Success",
+        error: "Error",
+      }, {id: "redirect"});
+    }
+  }, []);
+
   return (
     <StartBackground>
-      {data.length === 0 ? (
+      {/* {weatherService.getNoData() ? (
         <ErrorCard loading={loading} setLoading={setLoading}></ErrorCard>
-      ) : (
+      ) : ( */}
         <div>
           <Toaster position="top-center" reverseOrder={false} />
           <Head>
@@ -140,7 +153,7 @@ const Home: NextPage = (props) => {
             </main>
           ))}
         </div>
-      )}
+      {/* )} */}
     </StartBackground>
   );
 };

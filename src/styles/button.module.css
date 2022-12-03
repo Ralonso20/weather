@@ -1,5 +1,5 @@
 .muiButton {
-  color: white;
+  color: white !important;
   background-color: #5352ed !important;
   width: 50%;
   margin-top: 5em !important;
