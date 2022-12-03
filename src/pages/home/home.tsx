@@ -19,7 +19,7 @@ const Home: NextPage = (props) => {
   const [isShown, setIsShown] = useState(false);
   const [field, setField] = useState("");
   const router = useRouter();
-  const [data, setData] = useState<Array<WeatherClass>>(
+  const [data, setData] = useState<Array<WeatherClass> | void>(
     weatherService.getStorage()
   );
   const [loading, setLoading] = useState(false);
@@ -34,9 +34,6 @@ const Home: NextPage = (props) => {
       .then((data) => {
         setData(data);
       })
-      .catch((error) => {
-        toast.error("Invalid location");
-      })
       .finally(() => {
         setLoading(false);
       });
@@ -44,8 +41,8 @@ const Home: NextPage = (props) => {
     toast.promise(promise, {
       loading: "Loading",
       success: "Success",
-      error: "Error",
-    });
+      error: "Invalid location",
+    }, {id: "locationrjc"});
   };
 
   const getForecastData = async () => {

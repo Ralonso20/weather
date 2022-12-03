@@ -9,12 +9,14 @@ let noData: boolean = true;
 class WeatherService{
     
     async getAll(searchLocation: string | boolean | undefined){
-        dataList.pop()
         noData = false
-        const forecastJSON = await http.get<any>(`${defaultUrl}`, { params: { location: searchLocation } })
-        dataList.push(forecastJSON.data)
-        dataList = dataList.map((forecast) => WeatherClass.createWeather(forecast))
-        return dataList
+        await http.get<any>(`${defaultUrl}`, { params: { location: searchLocation } })
+        .then(response => {
+            dataList.pop()
+            dataList.push(response.data)
+            dataList = dataList.map((forecast) => WeatherClass.createWeather(forecast))
+            return dataList
+        })
     }
 
     getStorage(){
