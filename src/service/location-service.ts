@@ -1,11 +1,15 @@
 import * as locationHelper from "../helpers/userLocation";
-import toast,{ Toaster } from "react-hot-toast";
 class LocationService {
     constructor(public location?: string | boolean) {}
     getLocation = async () => {
         if(locationHelper.validateGeolocation()){
-            const location = await locationHelper.getUserLocation();
-            return await locationHelper.getCityName(location[0], location[1]);
+            try{
+                const location = await locationHelper.getUserLocation();
+                return await locationHelper.getCityName(location[0], location[1]);
+            }
+            catch(err){
+                return false
+            }
         }else{
             return false
         }
@@ -15,7 +19,7 @@ class LocationService {
         return await locationHelper.validateUserLocation();
     }
 
-    setLocation = (location: string | undefined) => {
+    setLocation = (location: string | boolean) => {
         this.location = location;
     }
 

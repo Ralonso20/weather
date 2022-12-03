@@ -20,15 +20,21 @@ export default function Start() {
   const [field, setField] = useState("");
   const [loading, setLoading] = useState(false);
   const [inputError, setInputError] = useState(false);
-  const getLocationAndRedirect = async (location: string | undefined) => {
+  const getLocationAndRedirect = async (location: string | boolean) => {
     setLoading(true);
     locationService.setLocation(location);
-    getForecastData().then((data) => {redirect();}).catch((error) => {handleChangeLoading()});
+    const promise = getForecastData().then((data) => {redirect();}).catch((error) => {handleChangeLoading()});
+    toast.promise(promise, {
+      loading: "Loading",
+      success: "Success!",
+      error: "Error",
+    });
   };
 
   const locationPermissionHandler = async () => {
+    setLoading(true);
     const permission = await locationService.getLocation();
-    permission ? getLocationAndRedirect(permission) : false;
+    permission ? getLocationAndRedirect(permission) : handleChangeLoading();
   };
 
   const setInputLocationAndRedirect = async () => {
