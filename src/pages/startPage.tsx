@@ -23,12 +23,7 @@ export default function Start() {
   const getLocationAndRedirect = async (location: string | undefined) => {
     setLoading(true);
     locationService.setLocation(location);
-    getForecastData().then((data) => {redirect();})
-    // toast.promise(promise, {
-    //   loading: "Loading",
-    //   success: "Got the data",
-    //   error: "Error when fetching",
-    // });
+    getForecastData().then((data) => {redirect();}).catch((error) => {handleChangeLoading()});
   };
 
   const locationPermissionHandler = async () => {
@@ -82,6 +77,7 @@ export default function Start() {
                 value={field}
                 fullWidth
                 error={inputError}
+                disabled={loading}
               />
               <LoadingButton
                 variant="contained"
