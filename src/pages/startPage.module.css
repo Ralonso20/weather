@@ -41,6 +41,7 @@
 @media (max-width: 768px) {
   .card{
     width: 90%;
-    height: 100vh;
+    height: 90vh;
+    overflow: scroll;
   }
 }
