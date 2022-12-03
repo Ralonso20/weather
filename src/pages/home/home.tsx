@@ -49,17 +49,12 @@ const Home: NextPage = (props) => {
   };
 
   const getForecastData = async () => {
-    return await weatherService.gel(locationService.getStorageLocation());
+    return await weatherService.getAll(locationService.getStorageLocation());
   };
 
   useEffect(() => {
     if (weatherService.getNoData()) {
-      const redirect = router.push("/")
-      toast.promise(redirect, {
-        loading: "Redirecting",
-        success: "Success",
-        error: "Error",
-      }, {id: "redirect"});
+      router.push("/")
     }
   }, []);
 

@@ -9,10 +9,6 @@ let noData: boolean = true;
 class WeatherService{
     
     async getAll(searchLocation: string | boolean | undefined){
-        return http.get<any>(`${defaultUrl}`, { params: { location: searchLocation } })
-    }
-
-    async gel(searchLocation: string | boolean | undefined){
         dataList.pop()
         noData = false
         const forecastJSON = await http.get<any>(`${defaultUrl}`, { params: { location: searchLocation } })

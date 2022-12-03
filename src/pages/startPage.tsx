@@ -22,12 +22,7 @@ export default function Start() {
   const getLocationAndRedirect = async (location: string | boolean) => {
     setLoading(true);
     locationService.setLocation(location);
-    const promise = getForecastData().then((data) => {redirect();}).catch((error) => {handleChangeLoading()});
-    toast.promise(promise, {
-      loading: "Loading",
-      success: "Success!",
-      error: "Error",
-    });
+    getForecastData().then((data) => {redirect();}).catch((error) => {handleChangeLoading()});
   };
 
   const locationPermissionHandler = async () => {
@@ -50,7 +45,7 @@ export default function Start() {
   useEffect(() => {}, [field]);
 
   const getForecastData = async() => {
-    return await weatherService.gel(locationService.getStorageLocation())
+    return await weatherService.getAll(locationService.getStorageLocation())
   };
 
   const redirect = () => {
@@ -83,14 +78,21 @@ export default function Start() {
                 fullWidth
                 error={inputError}
                 disabled={loading}
+                helperText={inputError ? "Invalid location" : ""}
+                onKeyPress={(e) => {
+                  if (e.key === "Enter") {
+                    setInputLocationAndRedirect();
+                  }
+                }}
               />
               <LoadingButton
                 variant="contained"
                 className={!loading ? `${styleButton.muiButton} ${styleButton.locationButton}` : styleButton.disableBtn}
                 onClick={setInputLocationAndRedirect}
                 loading={loading}
+                loadingPosition="start"
               >
-                To forecast
+                {!loading ? "To forecast" : "Loading"}
               </LoadingButton>
             </CardContent>
             <CardActions className={startPage.container}>
@@ -102,8 +104,9 @@ export default function Start() {
                 variant="contained"
                 onClick={locationPermissionHandler}
                 loading={loading}
+                loadingPosition="start"
               >
-                Get Device Location
+                {!loading ? "Get Device Location" : "Loading"}
               </LoadingButton>
             </CardActions>
           </Card>
