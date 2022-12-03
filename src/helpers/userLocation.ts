@@ -1,14 +1,14 @@
 import toast,{ Toaster } from "react-hot-toast";
 //function to get user location
-export const getUserLocation = async (): Promise<[number, number]> => {
+export const getUserLocation = async (): Promise<[number, number] | boolean> => {
    return new Promise((resolve, reject) => {
         navigator.geolocation.getCurrentPosition(
              (position) => {
                 resolve([position.coords.latitude, position.coords.longitude]);
              },
              (err) => {
-                toast.error("Permission denied");
-                reject();
+                toast.error("Permission denied", {id: "locationrjc"});
+                reject(new Error("Permission denied"));
              }
         );
    });

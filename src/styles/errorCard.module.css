@@ -1,0 +1,10 @@
+.ErrorCard{
+    width: 50%;
+    height: 20em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    background-color: rgb(255 255 255 / 31%);
+    flex-direction: column;
+}
